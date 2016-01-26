@@ -37,6 +37,8 @@ app.post('/api/automatic/webhook', function(req, res) {
     } else {
         console.log('Ignored');
     }
+    
+    res.status(200).end();
 });
 
 app.listen(3000);
