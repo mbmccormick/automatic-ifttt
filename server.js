@@ -1,10 +1,13 @@
 var express = require("express");
 var app = express();
 
+var bodyParser = require('body-parser');
 var request = require('request');
 
+app.use(bodyParser.json());
+
 app.post('/api/automatic/webhook', function(req, res) {
-    var payload = JSON.parse(req.body);
+    var payload = req.body; // JSON.parse(req.body);
     
     console.log('Webhook received of type \'' + payload.type + '\'')
     
