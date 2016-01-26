@@ -41,4 +41,4 @@ app.post('/api/automatic/webhook', function(req, res) {
     res.status(200).end();
 });
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
