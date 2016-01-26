@@ -4,13 +4,15 @@ var app = express();
 var request = require('request');
 
 app.post('/api/automatic/webhook', function(req, res) {
-    console.log('Webhook received of type \'' + req.body.type + '\'')
+    var payload = JSON.parse(req.body);
     
-    if (req.body.type == 'trip:finished') {
+    console.log('Webhook received of type \'' + payload.type + '\'')
+    
+    if (payload.type == 'trip:finished') {
         console.log('Checking remaining fuel in vehicle');
         
         request.get({
-            uri: 'https://api.automatic.com/vehicle/' + req.body.vehicle.id + '/',
+            uri: 'https://api.automatic.com/vehicle/' + payload.vehicle.id + '/',
             headers: {
                 Authorization: 'bearer ' + process.env.AUTOMATIC_ACCESS_TOKEN
             },
