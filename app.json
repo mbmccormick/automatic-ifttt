@@ -11,13 +11,13 @@
     "repository": "https://github.com/mbmccormick/automatic-ifttt",
     "env": {
         "AUTOMATIC_ACCESS_TOKEN": {
-            "description": "Your Automatic access token. Get this from your Automatic at http://developer.automatic.com."
+            "description": "Your Automatic access token. Get this from Automatic at http://developer.automatic.com."
         },
         "IFTTT_SECRET_KEY": {
             "description": "Your IFTTT Maker Channel secret key. Get this from IFTTT at http://ifttt.com/maker."
         },
         "FUEL_PERCENT_THRESHOLD": {
-            "description": "Your vehicle's fuel level percentage below which you'd like to trigger an IFTTT Maker Channel event."
+            "description": "Your vehicle's fuel level percentage below which you'd like to trigger an IFTTT Maker Channel event. For example: to be notified when the remaining fuel level in your vehicle drops below 25%, you would use `25.0` here."
         }
     }
 }
