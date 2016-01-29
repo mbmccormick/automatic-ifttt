@@ -1,6 +1,6 @@
 {
     "name": "automatic-ifttt",
-    "description": "Simple node.js app to trigger IFTTT Maker Channel event when Automatic reports low fuel for one of your vehicles.",
+    "description": "Node.js app to trigger an IFTTT Maker Channel event when Automatic indicates low fuel for one of your vehicles.",
     "keywords": [
         "automatic",
         "ifttt",
