@@ -14,7 +14,7 @@ app.post('/api/automatic/webhook', function(req, res) {
     
     console.log('Webhook received of type \'' + payload.type + '\'')
     
-    if (payload.type == 'ignition:off') {
+    if (payload.type == 'trip:finished') {
         console.log('Checking remaining fuel in vehicle');
         
         request.get({
