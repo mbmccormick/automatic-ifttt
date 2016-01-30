@@ -18,6 +18,7 @@ If you choose to deploy somewhere other than Heroku or you don't want to use the
 | `AUTOMATIC_ACCESS_TOKEN` | Your Automatic access token. Get this from Automatic at http://developer.automatic.com.                                                                                                                                    |
 | `IFTTT_SECRET_KEY`       | Your IFTTT Maker Channel secret key. Get this from IFTTT at http://ifttt.com/maker.                                                                                                                                        |
 | `FUEL_PERCENT_THRESHOLD` | Your vehicle's fuel level percentage below which you'd like to trigger an IFTTT Maker Channel event. For example: to be notified when the remaining fuel level in your vehicle drops below 25%, you would use `25.0` here. |
+| `REDIS_URL`              | Connection string to a Redis instance where certain variables can be persisted across requests.                                                                                                                            |
 
 ## License
 This software, and its dependencies, are distributed free of charge and licensed under the GNU General Public License v2. For more information about this license and the terms of use of this software, please review the LICENSE.txt file.

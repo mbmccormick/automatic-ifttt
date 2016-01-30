@@ -19,5 +19,8 @@
         "FUEL_PERCENT_THRESHOLD": {
             "description": "Your vehicle's fuel level percentage below which you'd like to trigger an IFTTT Maker Channel event. For example: to be notified when the remaining fuel level in your vehicle drops below 25%, you would use `25.0` here."
         }
-    }
+    },
+    "addons": [
+        "heroku-redis:hobby-dev"
+    ]
 }
