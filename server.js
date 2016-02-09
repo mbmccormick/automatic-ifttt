@@ -47,7 +47,7 @@ app.get('/', function(req, res) {
     });
 });
 
-app.post('/api/automatic/webhook', function(req, res) {
+app.post('/webhook', function(req, res) {
     var payload = req.body;
 
     console.log('Webhook received of type \'' + payload.type + '\'')
