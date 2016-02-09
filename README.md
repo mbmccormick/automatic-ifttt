@@ -5,7 +5,7 @@ Node.js app to trigger an IFTTT Maker Channel event when Automatic indicates low
 When your [Automatic Link](https://www.automatic.com/) records a new trip, it will send a notification to your `automatic-ifttt` instance. The app will then query Automatic's REST API for the current fuel level in your vehicle. If the remaining fuel level percentage is below a value that you set, then the app triggers an [IFTTT Maker Channel](http://ifttt.com/maker) event. You can then use IFTTT to do just about anything when you need gas: send you a text message, add a reminder to your todo list, or blink your lights.
 
 ## Setup
-To setup your own `automatic-ifttt` instance, you'll need to create register a new application for the Automatic API. You can do that at [developer.automatic.com](http://developer.automatic.com). Once you've created your application, enable the Webhooks API. Use `http://<YOUR_HOSTNAME>/api/automatic/webhook` as the Webhook URL.
+To setup your own `automatic-ifttt` instance, you'll need to create register a new application for the Automatic API. You can do that at [developer.automatic.com](http://developer.automatic.com). Once you've created your application, enable the Webhooks API. Use `http://<YOUR_HOSTNAME>/webhook` as the Webhook URL.
 
 To make this process even easier, you can use the button below to deploy `automatic-ifttt` to Heroku.
 

@@ -12,6 +12,41 @@ var client = redis.createClient(process.env.REDIS_URL);
 var lastFuelReading = 100.0;
 var notificationSent = false;
 
+app.get('/', function(req, res) {
+    client.get('lastFuelReading', function(err, lastFuelReading) {
+        if (lastFuelReading == null) {
+            lastFuelReading = 100.0;
+        }
+        
+        var result = '<!DOCTYPE html>' +
+            '<html>' +
+            '<head>' +
+            '<style>' +
+            'html { margin: 0; }' +
+            'body { margin: 0; font-family: Consolas, Courier, Monospace; font-size: 100px; }' +
+            'h1 { margin: 0; }' +
+            'p { margin: 0; }' +
+            '.outer { display: table; position: absolute; height: 100%; width: 100%; }' +
+            '.middle { display: table-cell; vertical-align: middle; }' +
+            '.inner { margin-left: auto; margin-right: auto; text-align: center; }' +
+            '</style>' +
+            '</head>' +
+            '<body>' +
+            '<div class=\'outer\'>' +
+            '<div class=\'middle\'>' +
+            '<div class=\'inner\'>' +
+            '<h1>' + lastFuelReading + '%</h1>' +
+            '<p>fuel remaining</p>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '</body>' +
+            '</html>';
+       
+       res.send(result);
+    });
+});
+
 app.post('/api/automatic/webhook', function(req, res) {
     var payload = req.body;
 
