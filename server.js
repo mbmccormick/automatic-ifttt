@@ -84,9 +84,9 @@ app.post('/webhook', function(req, res) {
 
                             request.post('https://maker.ifttt.com/trigger/automatic-ifttt/with/key/' + process.env.IFTTT_SECRET_KEY, {
                                 form: {
-                                    value1: body.display_name,
-                                    value2: body.fuel_level_percent,
-                                    value3: body.fuel_grade
+                                    value1: body.fuel_level_percent,
+                                    value2: payload.location.lat,
+                                    value3: payload.location.lon
                                 }
                             }, function(err, response, body) {
                                 console.log('Succeeded');
