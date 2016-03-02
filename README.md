@@ -20,5 +20,16 @@ If you choose to deploy somewhere other than Heroku or you don't want to use the
 | `FUEL_PERCENT_THRESHOLD` | Your vehicle's fuel level percentage below which you'd like to trigger an IFTTT Maker Channel event. For example: to be notified when the remaining fuel level in your vehicle drops below 25%, you would use `25.0` here. |
 | `REDIS_URL`              | Connection string to a Redis instance where certain variables can be persisted across requests.                                                                                                                            |
 
+## Configuration
+When `automatic-ifttt` receives a notification from Automatic that your vehicle's remaining fuel level has dropped below your configured threshold, it triggers an IFTTT Maker Channel event with the following properties:
+
+| Name     | Description                                                                                     |
+| -------- | ----------------------------------------------------------------------------------------------- |
+| `Value1` | Your vehicle's fuel level percentage at the time the event was triggered.                       |
+| `Value2` | The latitude coordinate from your vehicle's last location at the time the event was triggered.  |
+| `Value3` | The longitude coordinate from your vehicle's last location at the time the event was triggered. |
+
+You can view an example IFTTT recipe here: https://ifttt.com/recipes/392072-example-automatic-ifttt-recipe
+
 ## License
 This software, and its dependencies, are distributed free of charge and licensed under the GNU General Public License v2. For more information about this license and the terms of use of this software, please review the LICENSE.txt file.
