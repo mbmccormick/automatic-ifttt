@@ -68,11 +68,13 @@ app.post('/webhook', function(req, res) {
 
                 client.get('lastFuelReading', function(err, lastFuelReading) {
                     if (lastFuelReading == null) {
+                        console.log ('Unable to retrieve lastFuelReading.');
                         lastFuelReading = 100.0;
                     }
 
                     client.get('notificationSent', function(err, notificationSent) {
                         if (notificationSent == null) {
+                            console.log ('Unable to retrieve notificationSent.');
                             notificationSent = false;
                         }
 
