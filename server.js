@@ -93,9 +93,10 @@ app.post('/webhook', function(req, res) {
                                 }
                             }, function(err, response, body) {
                                 console.log('Succeeded');
+                                
+                                notificationSent = true;
+                                client.set('notificationSent', notificationSent);
                             });
-
-                            notificationSent = true;
                         } else {
                             console.log('Notification has already been sent');
                         }
