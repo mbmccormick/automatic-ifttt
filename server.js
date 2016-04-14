@@ -79,6 +79,7 @@ app.post('/webhook', function(req, res) {
                         }
 
                         if (body.fuel_level_percent > lastFuelReading) {
+                            console.log('Vehicle has been refuelled, resetting notification flag');
                             notificationSent = false;
                         }
 
@@ -100,15 +101,31 @@ app.post('/webhook', function(req, res) {
                         } else {
                             console.log('Notification has already been sent');
                         }
-
-                        client.set('notificationSent', notificationSent);
                     });
                 });
             } else {
                 console.log('Fuel level at ' + body.fuel_level_percent + '%, above threshold');
+                
+                client.get('lastFuelReading', function(err, lastFuelReading) {
+                    if (lastFuelReading == null) {
+                        console.log ('Unable to retrieve lastFuelReading.');
+                        lastFuelReading = 100.0;
+                    }
+
+                    client.get('notificationSent', function(err, notificationSent) {
+                        if (notificationSent == null) {
+                            console.log ('Unable to retrieve notificationSent.');
+                            notificationSent = false;
+                        }
+                        
+                        console.log('lastFuelReading = ' + lastFuelReading);
+                        console.log('notificationSent = ' + notificationSent);
+                    });
+                });
             }
 
             client.set('lastFuelReading', body.fuel_level_percent);
+            client.set('notificationSent', notificationSent);
         });
     } else {
         console.log('Ignored');
