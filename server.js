@@ -77,6 +77,9 @@ app.post('/webhook', function(req, res) {
                             console.log ('Unable to retrieve notificationSent.');
                             notificationSent = false;
                         }
+                        
+                        console.log('lastFuelReading = ' + lastFuelReading);
+                        console.log('notificationSent = ' + notificationSent);
 
                         if (body.fuel_level_percent > lastFuelReading) {
                             console.log('Vehicle has been refuelled, resetting notification flag');
