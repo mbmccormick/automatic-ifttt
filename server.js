@@ -78,6 +78,8 @@ app.post('/webhook', function(req, res) {
                             notificationSent = false;
                         }
                         
+                        notificationSent = (notificationSent == 'true');
+                        
                         console.log('lastFuelReading = ' + lastFuelReading);
                         console.log('notificationSent = ' + notificationSent);
 
@@ -120,6 +122,8 @@ app.post('/webhook', function(req, res) {
                             console.log ('Unable to retrieve notificationSent.');
                             notificationSent = false;
                         }
+                        
+                        notificationSent = (notificationSent == 'true');
                         
                         console.log('lastFuelReading = ' + lastFuelReading);
                         console.log('notificationSent = ' + notificationSent);
