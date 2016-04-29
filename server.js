@@ -86,6 +86,7 @@ app.post('/webhook', function(req, res) {
                         if (body.fuel_level_percent > lastFuelReading) {
                             console.log('Vehicle has been refuelled, resetting notification flag');
                             notificationSent = false;
+                            client.set('notificationSent', false);
                         }
 
                         if (notificationSent == false) {
@@ -101,7 +102,7 @@ app.post('/webhook', function(req, res) {
                                 console.log('Succeeded');
                                 
                                 notificationSent = true;
-                                client.set('notificationSent', notificationSent);
+                                client.set('notificationSent', true);
                             });
                         } else {
                             console.log('Notification has already been sent');
@@ -132,7 +133,6 @@ app.post('/webhook', function(req, res) {
             }
 
             client.set('lastFuelReading', body.fuel_level_percent);
-            client.set('notificationSent', notificationSent);
         });
     } else {
         console.log('Ignored');
