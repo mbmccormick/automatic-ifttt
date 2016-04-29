@@ -83,7 +83,8 @@ app.post('/webhook', function(req, res) {
                         console.log('lastFuelReading = ' + lastFuelReading);
                         console.log('notificationSent = ' + notificationSent);
 
-                        if (body.fuel_level_percent > lastFuelReading) {
+                        if (body.fuel_level_percent > lastFuelReading &&
+                            body.fuel_level_percent > process.env.FUEL_PERCENT_THRESHOLD) {
                             console.log('Vehicle has been refuelled, resetting notification flag');
                             notificationSent = false;
                             client.set('notificationSent', false);
@@ -128,6 +129,13 @@ app.post('/webhook', function(req, res) {
                         
                         console.log('lastFuelReading = ' + lastFuelReading);
                         console.log('notificationSent = ' + notificationSent);
+                        
+                        if (body.fuel_level_percent > lastFuelReading &&
+                            body.fuel_level_percent > process.env.FUEL_PERCENT_THRESHOLD) {
+                            console.log('Vehicle has been refuelled, resetting notification flag');
+                            notificationSent = false;
+                            client.set('notificationSent', false);
+                        }
                     });
                 });
             }
